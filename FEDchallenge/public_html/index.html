@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!doctype html>
+<html lang="en" ng-app="myApp">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>A Web Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.js"></script>
+        <link rel="stylesheet" href="app.css">
+        <script src="app.js"></script>
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body ng-controller="MainController">
+        <h1>{{title}}</h1>
+        <div class="form-group">
+		<input type="text" class="form-control" placeholder="Search here..."
+			ng-model="searchStr">
+	  </div>
+    <div class="table">    
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Occupation</th> 
+          <th>Company</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    </div>
+        <div class="details"></div>
     </body>
 </html>
