@@ -1,34 +1,27 @@
-<!doctype html>
-<html lang="en" ng-app="myApp">
+<html ng-app="myApp">
     <head>
-        <meta charset="utf-8">
-        <title>A Web Page</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.js"></script>
-        <link rel="stylesheet" href="app.css">
         <script src="app.js"></script>
+        <link href="app.css"/>
+        <link rel="shortcut icon" href=""/>
     </head>
-    <body ng-controller="MainController">
+    <body ng-controller="mainCtrl">
         <h1>{{title}}</h1>
         <div class="form-group">
 		<input type="text" class="form-control" placeholder="Search here..."
 			ng-model="searchStr">
 	  </div>
-    <div class="table">    
-    <table>
-        <tr>
-          <th>Name</th>
-          <th>Occupation</th> 
-          <th>Company</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    </div>
-        <div class="details"></div>
+        <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Company</th>
+                        <th>Occupation</th>
+                    </tr>
+                    <tr ng-repeat="member in members | filter:searchStr">
+                        <td>{{member.firstName}}</td>
+                        <td>{{member.company}}</td>
+                        <td>{{member.occupation}}</td>
+                    </tr>
+        </table>
     </body>
 </html>

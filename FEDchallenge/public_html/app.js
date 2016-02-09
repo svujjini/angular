@@ -1,30 +1,11 @@
-var myApp = angular.module("myApp", ["ngRoute", "ngAnimate"]);
-
-myApp.controller('MainController', ['$scope','memberService',function($scope,memberService) { 
-  $scope.title = 'UX Society Members'; 
-  memberService.success(function(data) { 
-    $scope.fiveDay = data; 
-  });
-}]);
-
-myApp.config(function ($routeProvider) { 
-  $routeProvider 
-    .when('/', { 
-      controller: 'MainController', 
-      templateUrl: '/index.html' 
-    }) 
-    .otherwise({ 
-      redirectTo: '/' 
-    }); 
+var myApp = angular.module('myApp',[]);
+myApp.controller('mainCtrl',function($scope,$http){
+    $scope.title = "UX Society Members";
+    $http.get('http://private-a73e-aquentuxsociety.apiary-mock.com/members')
+            .success (function(data){
+                $scope.members = data;                           
+        })
+                .error(function(){
+                    console.log("unexpected error occured");
+                });  
 });
-
-myApp.factory('memberService', ['$http', function($http) { 
-  return $http.get('http://private-a73e-aquentuxsociety.apiary-mock.com/members') 
-            .success(function(data) { 
-              return data;
-            }) 
-            .error(function(err) { 
-              return err; 
-            }); 
-}]);
-
