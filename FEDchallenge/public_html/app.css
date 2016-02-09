@@ -13,7 +13,15 @@ table{
   color: #FFF;
 }
 
-#form-group, #details{
+input{
+    float: right;
+}
+
+#details{
     float: right;
     overflow: hidden;
+}
+
+p{
+    text-align: center;
 }
