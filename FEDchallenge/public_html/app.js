@@ -5,7 +5,10 @@ myApp.controller('mainCtrl',function($scope,$http){
             .success (function(data){
                 $scope.members = data;                           
         })
-                .error(function(){
-                    console.log("unexpected error occured");
-                });  
+            .error(function(){
+                console.log("unexpected error occured");
+        });
+    $scope.showDetails = function(member){
+      $scope.selectedMember = member;
+    }         
 });

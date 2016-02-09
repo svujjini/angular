@@ -2,7 +2,7 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
         <script src="app.js"></script>
-        <link href="app.css"/>
+        <link rel="stylesheet" href="app.css"/>
         <link rel="shortcut icon" href=""/>
     </head>
     <body ng-controller="mainCtrl">
@@ -14,14 +14,23 @@
         <table>
                     <tr>
                         <th>Name</th>
-                        <th>Company</th>
                         <th>Occupation</th>
+                        <th>Company</th>
                     </tr>
-                    <tr ng-repeat="member in members | filter:searchStr">
-                        <td>{{member.firstName}}</td>
-                        <td>{{member.company}}</td>
+                    <tr class="person" ng-repeat="member in members | filter:searchStr" ng-click="showDetails(member)">
+                        <td ng-click="selMember(member)">{{member.firstName}} {{member.middleInitial}} {{member.surname}}</td>
                         <td>{{member.occupation}}</td>
+                        <td>{{member.company}}</td>
                     </tr>
         </table>
+        <div class="details">
+            <p>{{selectedMember.firstName}} {{selectedMember.middleInitial}} {{selectedMember.surname}}</p>
+            <p><img ng-src="{{selectedMember.portrait}}"></p>
+            <p>{{selectedMember.occupation}}</p>
+            <p>{{selectedMember.company}}</p>
+            <p>{{selectedMember.motto}}</p>
+        </div>
+
+       
     </body>
 </html>

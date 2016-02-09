@@ -1,12 +1,19 @@
-
-
-table {
-  width: 100%;
+table, th , td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table{
+    float: left;
 }
 
-tr:hover,
-.active-row {
+.person:hover {
   cursor: pointer;
-  background-color: #ccc;
-  color: #333;
+  background: #333;
+  color: #FFF;
+}
+
+#form-group, #details{
+    float: right;
+    overflow: hidden;
 }
