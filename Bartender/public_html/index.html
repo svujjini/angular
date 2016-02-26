@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title>bartender</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="shortcut icon" href=""/>
+        <link rel="stylesheet" href="app.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body ng-controller="mainCtrl">
+        
+        <div id="container1">
+        <h1>{{title}}</h1>
+        <div class="row">
+        <div ng-repeat="item in items" class="col-sm-4">
+            <p class="item-name">{{item.name}}        <span class="item-quantity">{{item.quantity}}</span></p><br/>
+        </div>   
+        </div>
+        </div>
+        
+        <div id="container2">
+            <h1>{{subtitle}}</h1>
+            <div class="table" ng-repeat="drink in drinks">    
+            <table>
+                <tr>
+                    <th><h3>{{drink.name}}<h3></th>
+                </tr>
+                <tr class="description">
+                    <td>
+                       <div ng-repeat="i in drink.ingredients">{{i}}</div>
+                       <span class="increase" ng-click="increase($index)"><img class="plus" src="imgs/plus.png"/></span>
+                       <span class="count"> - </span>
+                       <span class="decrease" ng-click="decrease($index)"><img class="minus" src="imgs/minus.png"/></span>
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>    
+        <div class='button' align='center'>
+            <button type="button" class='btn-bot'>Place Order</button>
+        </div>
+             
+    </body>
+</html>
